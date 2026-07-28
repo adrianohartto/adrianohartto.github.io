@@ -5,7 +5,7 @@
 @font-face{font-family:"Avenir LT";src:url(/fonts/AvenirLT-Medium.ttf)format("truetype");font-weight:500;font-display:swap}
 @font-face{font-family:"Avenir LT";src:url(/fonts/AvenirLT-Heavy.ttf)format("truetype");font-weight:700;font-display:swap}
 @font-face{font-family:"Avenir LT";src:url(/fonts/AvenirLT-Black.ttf)format("truetype");font-weight:900;font-display:swap}
-:root{--azul:#2a5075;--dourado:#d4a84b;--petroleo:#00809f;--escuro:#1a222b;--off:#fffdf6;--cinza:#fafafa}
+:root{--azul:#215372;--dourado:#e2c339;--petroleo:#215372;--escuro:#1a222b;--off:#fffdf6;--cinza:#fafafa}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:"Avenir LT",sans-serif;font-weight:400;color:#262626;background:#fff;line-height:1.6}
