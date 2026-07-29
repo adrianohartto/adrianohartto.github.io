@@ -46,7 +46,7 @@ a{color:var(--petroleo)}
 /* sections */
 section{padding:74px 0}
 .kicker{font-size:13px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--dourado)}
-h2.tt{font-weight:900;font-style:italic;text-transform:uppercase;color:var(--azul);font-size:clamp(24px,3vw,36px);line-height:1.12;margin:8px 0 18px}
+h2.tt{font-weight:900;font-style:normal;text-transform:uppercase;color:var(--azul);font-size:clamp(24px,3vw,36px);line-height:1.12;margin:8px 0 18px}
 .lead{font-size:18px;font-weight:300;max-width:820px}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
 .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:36px}
