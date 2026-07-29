@@ -46,8 +46,8 @@ addEventListener('click',function(e){var a=e.target.closest('a');if(!a)return;va
 <input type="hidden" name="redirect" value="https://www.hartto.com/obrigado/">
 <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
 <label>Nome</label><input type="text" name="nome" required>
-<label>E-mail</label><input type="email" name="email" required>
-<label>Telefone / WhatsApp</label><input type="tel" name="telefone" required>
+<label>E-mail</label><input type="email" name="email" required title="Informe um e-mail válido, ex.: nome@empresa.com">
+<label>Telefone / WhatsApp</label><input type="tel" name="telefone" required inputmode="tel" pattern="[0-9()+\-. ]{10,17}" minlength="10" title="Informe um telefone válido com DDD, ex.: (27) 99999-9999">
 <label>Sobre a obra (tipo, cidade, área aproximada)</label><textarea name="mensagem" rows="3"></textarea>
 <button type="submit" onclick="if(window.gtag)gtag('event','form_submit')">Enviar</button>
 <a class="zap" href="https://wa.me/5527992739196?text=Ol%C3%A1%2C%20quero%20um%20or%C3%A7amento%20de%20projeto%20estrutural.">ou chame no WhatsApp: (27) 99273-9196</a>
