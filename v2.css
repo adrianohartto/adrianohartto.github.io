@@ -98,3 +98,13 @@ footer{background:#1e3a54;color:#fffdf6cc;padding:56px 0 90px;font-size:14px}
 /* util */
 .bc{font-size:13px;margin-bottom:14px}.bc a{color:var(--dourado);text-decoration:none}
 @media(max-width:900px){.hero-grid,.grid3,.grid2,.nums,.ft{grid-template-columns:1fr}.hd{position:static;background:var(--azul)}.hd-in{flex-direction:column;padding:16px 12px;gap:8px}.hd img{height:44px}.hd nav{margin:0;justify-content:center;gap:0;row-gap:2px}.hd nav a{font-size:12px;padding:8px 10px}.hd .cta{font-size:13px;padding:10px 24px;margin-top:4px}.hero{padding:44px 0 56px}.nums{grid-template-columns:repeat(2,1fr)}}
+
+/* mapa do Brasil — atuação */
+.mapa-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center;margin-top:30px}
+.mapa-br svg{width:100%;height:auto;display:block}
+.mapa-br path{fill:#e4e9ee;stroke:#fff;stroke-width:.8;transition:fill .3s}
+.mapa-br path.atua{fill:var(--dourado);stroke:var(--azul);stroke-width:1}
+.estados{list-style:none;padding:0;margin:0}
+.estados li{font-size:19px;color:var(--azul);padding:14px 0;border-bottom:1px solid #e8ebee}
+.estados li b{font-weight:700}
+@media(max-width:900px){.mapa-grid{grid-template-columns:1fr}}
