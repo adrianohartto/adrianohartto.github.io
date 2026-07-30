@@ -80,7 +80,7 @@ h2.tt{font-weight:700;font-style:normal;text-transform:uppercase;color:var(--azu
 .quote small{color:#666}
 /* faq */
 .faq details{border-bottom:1px solid #e5e5e5;padding:16px 0}
-.faq summary{font-weight:700;color:var(--azul);cursor:pointer;font-size:16px}
+.faq summary{font-weight:700;color:var(--azul);cursor:pointer;font-size:19px}
 .faq p{margin-top:10px;font-size:15px;color:#444;max-width:840px}
 /* prose (blog) */
 .prose{max-width:780px;margin:0 auto}
@@ -88,9 +88,9 @@ h2.tt{font-weight:700;font-style:normal;text-transform:uppercase;color:var(--azu
 .prose p,.prose li{font-size:17px;font-weight:400;color:#333;margin-bottom:14px}
 .prose ul{padding-left:22px}
 /* footer */
-footer{background:var(--escuro);color:#fffdf6cc;padding:56px 0 90px;font-size:14px}
+footer{background:#1e3a54;color:#fffdf6cc;padding:56px 0 90px;font-size:14px}
 .ft{display:grid;grid-template-columns:1.2fr 1fr 1fr 1.2fr;gap:30px}
-.ft img{height:30px;margin-bottom:14px}
+.ft img{height:44px;margin-bottom:14px}
 .ft h4{color:var(--dourado);font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px}
 .ft a{color:#fffdf6cc;text-decoration:none;display:block;margin-bottom:8px}
 .ft a:hover{color:var(--dourado)}
