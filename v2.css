@@ -14,15 +14,15 @@ a{color:var(--petroleo)}
 .container{max-width:1140px;margin:0 auto;padding:0 24px}
 /* header — réplica exata do topo da home (medido no site em produção) */
 .hd{position:absolute;top:0;left:0;right:0;z-index:1000;background:transparent}
-.hd-in{max-width:1400px;margin:0 auto;padding:24px;display:flex;align-items:center;gap:28px}
+.hd-in{max-width:1400px;margin:0 auto;padding:24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .hd img{height:56px;width:auto}
-.hd nav{display:flex;gap:6px;margin-left:auto;align-items:center;flex-wrap:wrap}
+.hd nav{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
 .hd nav a{color:#fff;text-decoration:none;font-weight:400;font-size:14px;letter-spacing:.35px;text-transform:uppercase;padding:12px 16px}
 .hd nav a:hover{color:var(--dourado)}
 .hd .cta{background:var(--dourado);color:var(--azul);padding:12px 32px;border-radius:999px;font-weight:700;font-size:16px;letter-spacing:.4px}
 .hd .cta:hover{color:var(--azul);filter:brightness(1.05)}
 /* hero */
-.hero{background:linear-gradient(160deg,var(--azul),#203e5a 60%,var(--escuro));color:#fff;padding:150px 0 70px}
+.hero{background:linear-gradient(rgba(33,83,114,.85),rgba(33,83,114,.85)),url(/images/obras/obra-3.jpeg) center/cover no-repeat;color:#fff;padding:150px 0 70px}
 .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:start}
 .hero h1{font-weight:700;font-style:italic;text-transform:uppercase;font-size:clamp(34px,5vw,72px);line-height:1.02;letter-spacing:normal}
 .hatch{height:12px;width:min(340px,70%);margin:22px 0;background:repeating-linear-gradient(115deg,var(--dourado) 0 3px,transparent 3px 9px)}
@@ -60,9 +60,9 @@ h2.tt{font-weight:700;font-style:normal;text-transform:uppercase;color:var(--azu
 .dark .tile h3{color:var(--dourado)}
 .dark .tile p{color:#fffdf6d9}
 /* números */
-.nums{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:34px;text-align:center;max-width:720px;margin-left:auto;margin-right:auto}
-.nums b{display:block;font-size:clamp(26px,3vw,40px);font-weight:900;color:var(--azul)}
-.nums span{font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+.nums{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:30px;text-align:center;max-width:760px;margin-left:auto;margin-right:auto}
+.nums b{display:block;font-size:clamp(34px,4vw,48px);font-weight:700;color:var(--dourado)}
+.nums span{font-size:18px;font-weight:500;color:var(--azul)}
 /* cases */
 .case{background:#fff;border:1px solid #eee;border-radius:12px;overflow:hidden;box-shadow:0 8px 26px #0000000d}
 .case img{height:220px;width:100%;object-fit:cover}
