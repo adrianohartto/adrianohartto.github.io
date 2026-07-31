@@ -28,7 +28,7 @@ a{color:var(--petroleo)}
 .hatch{height:12px;width:min(340px,70%);margin:22px 0;background:repeating-linear-gradient(115deg,var(--dourado) 0 3px,transparent 3px 9px)}
 .hero p.sub{font-weight:300;font-size:19px;max-width:560px;color:#fffdf6e6}
 .btn-row{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap}
-.btn{display:inline-block;padding:14px 28px;border-radius:999px;text-decoration:none;font-weight:700;font-size:14px;letter-spacing:.08em;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;justify-content:center;line-height:1;padding:16px 28px;border-radius:999px;text-decoration:none;font-weight:700;font-size:14px;letter-spacing:.08em;text-transform:uppercase}
 .btn-gold{background:var(--dourado);color:var(--escuro)}
 .btn-gold:hover{filter:brightness(1.07);color:var(--escuro)}
 .btn-ghost{border:2px solid #fff;color:#fff}
@@ -51,8 +51,8 @@ h2.tt{font-weight:700;font-style:normal;text-transform:uppercase;color:var(--azu
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
 .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:36px}
 .tile{background:var(--cinza);border-top:3px solid var(--dourado);border-radius:12px;padding:26px}
-.tile h3{color:var(--azul);font-weight:700;text-transform:uppercase;font-size:15px;letter-spacing:.06em;margin-bottom:10px}
-.tile p{font-size:15px;color:#444}
+.tile h3{color:var(--azul);font-weight:700;text-transform:uppercase;font-size:16px;letter-spacing:.06em;margin-bottom:10px}
+.tile p{font-size:17px;color:#444}
 .tile a{font-weight:700;font-size:14px}
 .dark{background:var(--azul);color:#fff}
 .dark h2.tt{color:#fff}
@@ -68,7 +68,7 @@ h2.tt{font-weight:700;font-style:normal;text-transform:uppercase;color:var(--azu
 .case img{height:220px;width:100%;object-fit:cover}
 .case .cb{padding:20px}
 .case h3{color:var(--azul);font-weight:700;font-size:17px}
-.case p{font-size:14px;color:#555;margin-top:4px}
+.case p{font-size:16px;color:#555;margin-top:4px}
 .case b{color:var(--petroleo)}
 /* depoimento */
 .quote{max-width:860px;margin:0 auto;text-align:center}
@@ -88,7 +88,7 @@ h2.tt{font-weight:700;font-style:normal;text-transform:uppercase;color:var(--azu
 .prose p,.prose li{font-size:17px;font-weight:400;color:#333;margin-bottom:14px}
 .prose ul{padding-left:22px}
 /* footer */
-footer{background:#1e3a54;color:#fffdf6cc;padding:56px 0 90px;font-size:14px}
+footer{background:#215372;color:#fffdf6d9;padding:56px 0 90px;font-size:14px}
 .ft{display:grid;grid-template-columns:1.2fr 1fr 1fr 1.2fr;gap:30px}
 .ft img{height:44px;margin-bottom:14px}
 .ft h4{color:var(--dourado);font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px}
@@ -112,8 +112,8 @@ footer{background:#1e3a54;color:#fffdf6cc;padding:56px 0 90px;font-size:14px}
 /* submenu Projeto Estrutural */
 .dd{position:relative;display:inline-block}
 .dd>a{display:inline-block}
-.dd-panel{display:none;position:absolute;top:100%;left:8px;background:#1e3a54;border-radius:10px;padding:10px 0;min-width:230px;box-shadow:0 16px 38px #00000059;z-index:1300}
+.dd-panel{display:none;position:absolute;top:100%;left:8px;background:#215372;border-radius:10px;padding:10px 0;min-width:230px;box-shadow:0 16px 38px #00000059;z-index:1300}
 .dd:hover .dd-panel,.dd:focus-within .dd-panel{display:block}
-.dd-panel a{display:block;padding:11px 22px;font-size:14px;color:#fff;text-decoration:none;text-transform:none;letter-spacing:.2px}
+.dd-panel a{display:block;padding:12px 22px;font-size:13.5px;color:#fff;text-decoration:none;text-transform:uppercase;letter-spacing:.35px}
 .dd-panel a:hover{color:var(--dourado)}
 @media(max-width:900px){.dd-panel{display:flex;position:static;background:transparent;box-shadow:none;padding:0;min-width:0;flex-wrap:wrap;justify-content:center;gap:0}.dd-panel a{padding:6px 10px;font-size:12px;color:#fffdf6cc}}
