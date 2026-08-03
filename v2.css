@@ -14,12 +14,12 @@ a{color:var(--petroleo)}
 .container{max-width:1140px;margin:0 auto;padding:0 24px}
 /* header — réplica exata do topo da home (medido no site em produção) */
 .hd{position:absolute;top:0;left:0;right:0;z-index:1000;background:transparent}
-.hd-in{max-width:1400px;margin:0 auto;padding:24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.hd-in{max-width:1536px;margin:0 auto;padding:24px 16px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .hd img{height:56px;width:auto}
-.hd nav{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
-.hd nav a{color:#fff;text-decoration:none;font-weight:400;font-size:14px;letter-spacing:.35px;text-transform:uppercase;padding:12px 16px}
+.hd nav{display:flex;gap:40px;align-items:center;flex-wrap:wrap}
+.hd nav a{color:#fff;text-decoration:none;font-weight:500;font-size:16px;letter-spacing:.4px;text-transform:uppercase;padding:0}
 .hd nav a:hover{color:var(--dourado)}
-.hd .cta{background:var(--dourado);color:var(--azul);padding:12px 32px;border-radius:999px;font-weight:700;font-size:16px;letter-spacing:.4px}
+.hd .cta{background:var(--dourado);color:var(--azul);padding:12px 32px;border-radius:999px;font-weight:700;font-size:16px;letter-spacing:.4px;text-transform:uppercase;text-decoration:none}
 .hd .cta:hover{color:var(--azul);filter:brightness(1.05)}
 /* hero */
 .hero{background:linear-gradient(rgba(33,83,114,.85),rgba(33,83,114,.85)),url(/images/obras/obra-3.jpeg) center/cover no-repeat;color:#fff;padding:150px 0 70px}
@@ -97,6 +97,7 @@ footer{background:#215372;color:#fffdf6d9;padding:56px 0 90px;font-size:14px}
 .ft-base{border-top:1px solid #ffffff22;margin-top:40px;padding-top:18px;font-size:12px;color:#fffdf680;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 /* util */
 .bc{font-size:13px;margin-bottom:14px}.bc a{color:var(--dourado);text-decoration:none}
+@media(min-width:901px) and (max-width:1350px){.hd nav{gap:18px}.hd nav a{font-size:14px}}
 @media(max-width:900px){.hero-grid,.grid3,.grid2,.nums,.ft{grid-template-columns:1fr}.hd{position:static;background:var(--azul)}.hd-in{flex-direction:column;padding:16px 12px;gap:8px}.hd img{height:44px}.hd nav{margin:0;justify-content:center;gap:0;row-gap:2px}.hd nav a{font-size:12px;padding:8px 10px}.hd .cta{font-size:13px;padding:10px 24px;margin-top:4px}.hero{padding:44px 0 56px}.nums{grid-template-columns:repeat(2,1fr)}}
 
 /* mapa do Brasil — atuação */
@@ -107,6 +108,7 @@ footer{background:#215372;color:#fffdf6d9;padding:56px 0 90px;font-size:14px}
 .estados{list-style:none;padding:0;margin:0}
 .estados li{font-size:19px;color:var(--azul);padding:14px 0;border-bottom:1px solid #e8ebee}
 .estados li b{font-weight:700}
+@media(min-width:901px) and (max-width:1350px){.hd nav{gap:18px}.hd nav a{font-size:14px}}
 @media(max-width:900px){.mapa-grid{grid-template-columns:1fr}}
 
 /* submenu Projeto Estrutural */
@@ -116,4 +118,5 @@ footer{background:#215372;color:#fffdf6d9;padding:56px 0 90px;font-size:14px}
 .dd:hover .dd-panel,.dd:focus-within .dd-panel{display:block}
 .dd-panel a{display:block;padding:12px 22px;font-size:13.5px;color:#fff;text-decoration:none;text-transform:uppercase;letter-spacing:.35px}
 .dd-panel a:hover{color:var(--dourado)}
+@media(min-width:901px) and (max-width:1350px){.hd nav{gap:18px}.hd nav a{font-size:14px}}
 @media(max-width:900px){.dd-panel{display:flex;position:static;background:transparent;box-shadow:none;padding:0;min-width:0;flex-wrap:wrap;justify-content:center;gap:0}.dd-panel a{padding:6px 10px;font-size:12px;color:#fffdf6cc}}
