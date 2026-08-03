@@ -17,6 +17,7 @@ a{color:var(--petroleo)}
 .hd-in{max-width:1536px;margin:0 auto;padding:24px 16px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .hd img{height:56px;width:auto}
 .hd nav{display:flex;gap:40px;align-items:center;flex-wrap:wrap}
+.nav-t,.nav-burger{display:none}
 .hd nav a{color:#fff;text-decoration:none;font-weight:500;font-size:16px;letter-spacing:.4px;text-transform:uppercase;padding:0}
 .hd nav a:hover{color:var(--dourado)}
 .hd .cta{background:var(--dourado);color:var(--azul);padding:12px 32px;border-radius:999px;font-weight:700;font-size:16px;letter-spacing:.4px;text-transform:uppercase;text-decoration:none}
@@ -98,7 +99,7 @@ footer{background:#215372;color:#fffdf6d9;padding:56px 0 90px;font-size:14px}
 /* util */
 .bc{font-size:13px;margin-bottom:14px}.bc a{color:var(--dourado);text-decoration:none}
 @media(min-width:901px) and (max-width:1350px){.hd nav{gap:18px}.hd nav a{font-size:14px}}
-@media(max-width:900px){.hero-grid,.grid3,.grid2,.nums,.ft{grid-template-columns:1fr}.hd{position:static;background:var(--azul)}.hd-in{flex-direction:column;padding:16px 12px;gap:8px}.hd img{height:44px}.hd nav{margin:0;justify-content:center;gap:0;row-gap:2px}.hd nav a{font-size:12px;padding:8px 10px}.hd .cta{font-size:13px;padding:10px 24px;margin-top:4px}.hero{padding:44px 0 56px}.nums{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:900px){.hero-grid,.grid3,.grid2,.ft{grid-template-columns:1fr}.hd{position:static;background:var(--azul)}.hd-in{flex-wrap:wrap;justify-content:space-between;padding:14px 16px;gap:0}.hd img{height:44px}.nav-burger{display:flex;flex-direction:column;gap:5px;cursor:pointer;padding:10px}.nav-burger span{display:block;width:26px;height:3px;background:#fff;border-radius:2px}.hd nav{display:none;width:100%;flex-direction:column;align-items:stretch;gap:0;margin-top:10px}.hd nav a{font-size:14px;padding:13px 8px;border-top:1px solid #ffffff21}.hd .dd{width:100%}.dd-panel{display:block;position:static;background:transparent;box-shadow:none;padding:0;min-width:0}.dd-panel a{padding:11px 8px 11px 30px;font-size:13px;color:#fffdf6d9}.hd-in>.cta{display:none;width:100%;margin-top:14px;font-size:14px;padding:12px 24px}.nav-t:checked~nav{display:flex}.nav-t:checked~.cta{display:inline-flex}.hero{padding:44px 0 56px}.nums{grid-template-columns:repeat(2,1fr)}}
 
 /* mapa do Brasil — atuação */
 .mapa-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center;margin-top:30px}
@@ -119,4 +120,9 @@ footer{background:#215372;color:#fffdf6d9;padding:56px 0 90px;font-size:14px}
 .dd-panel a{display:block;padding:12px 22px;font-size:13.5px;color:#fff;text-decoration:none;text-transform:uppercase;letter-spacing:.35px}
 .dd-panel a:hover{color:var(--dourado)}
 @media(min-width:901px) and (max-width:1350px){.hd nav{gap:18px}.hd nav a{font-size:14px}}
-@media(max-width:900px){.dd-panel{display:flex;position:static;background:transparent;box-shadow:none;padding:0;min-width:0;flex-wrap:wrap;justify-content:center;gap:0}.dd-panel a{padding:6px 10px;font-size:12px;color:#fffdf6cc}}
+
+
+@media(max-width:900px){
+.dd-panel{display:block!important;position:static;background:transparent;box-shadow:none;padding:0;min-width:0}
+.hd nav .dd-panel a{padding:11px 8px 11px 30px;font-size:13px;color:#fffdf6d9;text-transform:uppercase;border-top:1px dashed #ffffff1a}
+}
