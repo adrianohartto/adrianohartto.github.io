@@ -126,3 +126,6 @@ footer{background:#215372;color:#fffdf6d9;padding:56px 0 90px;font-size:14px}
 .dd-panel{display:block!important;position:static;background:transparent;box-shadow:none;padding:0;min-width:0}
 .hd nav .dd-panel a{padding:11px 8px 11px 30px;font-size:13px;color:#fffdf6d9;text-transform:uppercase;border-top:1px dashed #ffffff1a}
 }
+
+.hd nav .dd-panel a{padding:12px 22px}
+@media(max-width:900px){.hd nav .dd-panel a{padding:11px 8px 11px 30px}}
