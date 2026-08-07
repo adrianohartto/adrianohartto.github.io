@@ -1,0 +1,18 @@
+# Hartto — regras do servidor (Hostinger)
+ErrorDocument 404 /404.html
+RewriteEngine On
+# força https
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+# força www
+RewriteCond %{HTTP_HOST} ^hartto\.com$ [NC]
+RewriteRule ^(.*)$ https://www.hartto.com/$1 [R=301,L]
+# cache de assets
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/jpeg "access plus 30 days"
+ExpiresByType image/png "access plus 30 days"
+ExpiresByType text/css "access plus 7 days"
+ExpiresByType application/javascript "access plus 7 days"
+ExpiresByType font/ttf "access plus 365 days"
+</IfModule>
