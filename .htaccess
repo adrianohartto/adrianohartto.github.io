@@ -1,6 +1,9 @@
 # Hartto — regras do servidor (Hostinger)
 ErrorDocument 404 /404.html
 RewriteEngine On
+# heranças do WordPress antigo: qualquer URL da era index.php vai para a home
+RewriteRule ^index\.php(/.*)?$ https://www.hartto.com/ [R=301,L]
+RewriteRule ^(wp-content|wp-admin|wp-includes|feed)(/.*)?$ https://www.hartto.com/ [R=301,L]
 # força https
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
