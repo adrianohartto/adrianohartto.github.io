@@ -54,9 +54,14 @@ var DEPS=[
 {t:"Trabalhar com a Hartto Engenharia Estrutural tem sido uma experiência muito positiva. O Adriano é um profissional jovem, mas com um nível técnico e responsabilidade que chamam atenção. Os projetos que ele entrega são sempre bem elaborados, detalhados e organizados, o que facilita muito a execução na obra e evita retrabalho. Além da qualidade técnica, destaco a postura: é um parceiro confiável, acessível e comprometido com prazos e resultados.",n:"Wagner Rocha",r:"Diretor de Engenharia",c:"Octo Empreendimentos"},
 {t:"Sou o Vitor Hugo, sócio da Excelência Construtora, especializada na execução de casas de alto padrão. Um dos maiores desafios nesse segmento é vencer a estrutura de forma eficiente, sem encarecer a obra. E o Adriano, da Hartto, faz isso com muita maestria. Em projetos com arquiteturas mais desafiadoras, encontrar esse equilíbrio é raro. Por isso, temos total confiança em indicar para todos os nossos clientes e executar os projetos desenvolvidos por ele.",n:"Vitor Hugo",r:"Sócio",c:"Excelence Construtora"}];
 function findNode(txt){var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null);var n;while((n=w.nextNode())){if(n.nodeValue&&n.nodeValue.indexOf(txt)>-1)return n;}return null;}
-var tNd=findNode('Somos parceiros da Hartto'),nNd=findNode('Sinval Cardoso'),rNd=findNode('Diretor de Engenharia'),cNd=findNode('Ideally Construtora');
+function findAny(list){for(var i=0;i<list.length;i++){var n=findNode(list[i]);if(n)return {n:n,i:i};}return {n:null,i:0};}
+var tF=findAny(['Somos parceiros da Hartto','Trabalhar com a Hartto','Sou o Vitor Hugo']);
+var nF=findAny(['Sinval Cardoso','Wagner Rocha','Vitor Hugo']);
+var rF=findAny(['Diretor de Engenharia','S\u00f3cio']);
+var cF=findAny(['Ideally Construtora','Octo Empreendimentos','Excelence Construtora']);
+var tNd=tF.n,nNd=nF.n,rNd=rF.n,cNd=cF.n;
 var aspas=tNd&&tNd.nodeValue.indexOf('\u201c')>-1;
-var cur=0,timer=null,paused=false;
+var cur=tF.i,timer=null,paused=false;
 function show(i){cur=(i+DEPS.length)%DEPS.length;var d=DEPS[cur];if(tNd)tNd.nodeValue=aspas?('\u201c'+d.t+'\u201d'):d.t;if(nNd)nNd.nodeValue=d.n;if(rNd)rNd.nodeValue=d.r;if(cNd)cNd.nodeValue=d.c;}
 var prev=q('button.absolute.left-4'),next=q('button.absolute.right-4:not(.top-4)')||qa('button.absolute.right-4')[qa('button.absolute.right-4').length-1];
 if(prev){prev.setAttribute('aria-label','Depoimento anterior');prev.addEventListener('click',function(){show(cur-1);});}
