@@ -20,7 +20,8 @@
 <script>(function(){window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){dataLayer.push(arguments);};
 function loadGA(){if(!/(^|\.)hartto\.com$/.test(location.hostname))return;var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id=G-VTGDXK1JVN";document.head.appendChild(s);}
 var c=null;try{c=localStorage.getItem("hb_consent")}catch(e){}
-if(c==="granted"){loadGA();}
+if(!/github\.io$/.test(location.hostname)){loadGA();}/* GATE LGPD: banner só no preview até aprovação da Hartto */
+else if(c==="granted"){loadGA();}
 else if(c!=="denied"){var mk=function(){if(document.getElementById("hb-consent"))return;var d=document.createElement("div");d.id="hb-consent";d.setAttribute("role","dialog");d.setAttribute("aria-label","Aviso de privacidade");d.style.cssText="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1a222b;color:#fffdf6;padding:16px 20px;font-size:14px;line-height:1.5;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:center;box-shadow:0 -4px 20px rgba(0,0,0,.25)";d.innerHTML='<span style="max-width:640px">Usamos o Google Analytics para medir visitas e melhorar o site. Nenhum dado é coletado antes da sua escolha. <a href="/privacidade/" style="color:#e2c339;text-decoration:underline">Política de privacidade</a></span><span style="display:flex;gap:10px"><button id="hb-c-no" style="background:transparent;border:1px solid #fffdf680;color:#fffdf6;border-radius:8px;padding:10px 18px;font-size:14px;cursor:pointer">Rejeitar</button><button id="hb-c-ok" style="background:#e2c339;border:0;color:#1a222b;border-radius:8px;padding:10px 18px;font-size:14px;font-weight:700;cursor:pointer">Aceitar</button></span>';document.body.appendChild(d);document.getElementById("hb-c-ok").onclick=function(){try{localStorage.setItem("hb_consent","granted")}catch(e){}loadGA();d.remove();};document.getElementById("hb-c-no").onclick=function(){try{localStorage.setItem("hb_consent","denied")}catch(e){}d.remove();};};
 if(document.readyState!=="loading")mk();else document.addEventListener("DOMContentLoaded",mk);}
 gtag("js",new Date());gtag("config","G-VTGDXK1JVN");
@@ -42,7 +43,7 @@ addEventListener("click",function(e){var a=e.target.closest("a");if(!a)return;va
 <a class="cta" href="/#contato">Entre em contato</a>
 </div></header>
 <main id="conteudo">
-<div class="hero" style="background:linear-gradient(rgba(33,83,114,.85),rgba(33,83,114,.85)),url(/images/obras/obra-2.jpeg) center/cover no-repeat"><div class="container"><p class="bc"><a href="/blog/">← Blog</a></p><h1>Concreto armado ou protendido: como escolher</h1><p style="color:#fffdf6cc;font-size:14px;margin-top:10px">Publicado em 07/08/2026 · Atualizado em 19/08/2026</p><div class="hatch"></div></div></div>
+<div class="hero" style="background:linear-gradient(rgba(33,83,114,.85),rgba(33,83,114,.85)),url(/images/obras/obra-2.jpeg) center/cover no-repeat"><div class="container"><p class="bc"><a href="/blog/">← Blog</a></p><h1>Concreto armado ou protendido: como escolher</h1><div class="hatch"></div></div></div>
 <section><div class="container"><div class="prose">
 <p>A escolha do sistema estrutural é uma das decisões de maior impacto no custo e no prazo de um empreendimento — e ela deve ser tomada no início, quando mudar ainda é barato. Não existe sistema "melhor": existe o sistema certo para cada obra.</p>
 <p>A contratação do projeto estrutural deve ocorrer no início do desenvolvimento do projeto de arquitetura. Nessa etapa, o projetista da estrutura consegue, com pequenas alterações na arquitetura, resultados muito satisfatórios no desempenho e no custo da estrutura.</p>
@@ -55,7 +56,6 @@ addEventListener("click",function(e){var a=e.target.closest("a");if(!a)return;va
 </ul>
 <p>A definição se a estrutura será construída em concreto armado ou concreto protendido deve ser feita nas etapas iniciais do projeto. Devemos entender que a estrutura não é parte isolada da construção, e o seu impacto nos outros sistemas da edificação deve ser levado em consideração.</p>
 <p>O custo da construção da estrutura é fator determinante na escolha da tipologia estrutural, mas a conta deve ser feita de maneira a levar em consideração todas as variáveis dessa complexa equação.</p>
-<div style="background:#f6f7f8;border-radius:12px;padding:22px 26px;margin-top:36px"><h2 style="font-size:18px;color:#215372;text-transform:uppercase;margin-bottom:10px">Leia também</h2><ul style="margin:0;padding-left:20px;line-height:2"><li><a href="/projeto-estrutural-concreto-armado/">Projeto de concreto armado</a></li><li><a href="/projeto-estrutural-concreto-protendido/">Projeto de concreto protendido</a></li><li><a href="/blog/estados-limites-seguranca-estrutural/">O que significa uma estrutura segura</a></li></ul></div>
 <p><a class="btn btn-gold" href="https://wa.me/5527992739196?text=Ol%C3%A1%2C%20quero%20um%20or%C3%A7amento%20de%20projeto%20estrutural.">Estudar o sistema ideal para minha obra</a></p>
 </div></div></section></main>
 <footer><div class="container">
