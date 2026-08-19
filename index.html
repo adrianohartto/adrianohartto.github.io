@@ -69,6 +69,9 @@ if(prev){prev.setAttribute('aria-label','Depoimento anterior');prev.addEventList
 if(next){next.setAttribute('aria-label','Próximo depoimento');next.addEventListener('click',function(){show(cur+1);});}
 if(tNd){var sec=tNd.parentElement.closest('section')||tNd.parentElement;sec.addEventListener('mouseenter',function(){paused=true;});sec.addEventListener('mouseleave',function(){paused=false;});
 if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){timer=setInterval(function(){if(!paused)show(cur+1);},9000);}}
+/* header ganha fundo sólido ao rolar (comportamento que era do React) */
+var hd=document.querySelector('header.fixed');
+if(hd){var paint=function(){if(window.scrollY>40){hd.classList.add('hb-solid');}else{hd.classList.remove('hb-solid');}};window.addEventListener('scroll',paint,{passive:true});paint();}
 /* rolar para baixo */
 qa('button').forEach(function(b){if(b.textContent.indexOf('Rolar')>-1){b.addEventListener('click',function(){window.scrollBy({top:innerHeight*0.9,behavior:'smooth'});});}});
 /* validação + envio nativo */
@@ -88,6 +91,7 @@ if(window.gtag)gtag('event','form_submit');try{sessionStorage.setItem('hb_lead',
 })();</script>
 <style>
 .hb-open{max-height:calc(100dvh - 96px)!important;opacity:1!important;overflow-y:auto!important}
+header.hb-solid{background:#215372!important;box-shadow:0 2px 14px rgba(0,0,0,.18)}
 @media(prefers-reduced-motion:reduce){.animate-scroll{animation:none!important}}
 button[data-vstate="ok"]{opacity:1!important;pointer-events:auto!important}
 </style>
