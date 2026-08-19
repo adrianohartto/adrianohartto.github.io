@@ -66,7 +66,7 @@ function show(i){cur=(i+DEPS.length)%DEPS.length;var d=DEPS[cur];if(tNd)tNd.node
 var prev=q('button.absolute.left-4'),next=q('button.absolute.right-4:not(.top-4)')||qa('button.absolute.right-4')[qa('button.absolute.right-4').length-1];
 if(prev){prev.setAttribute('aria-label','Depoimento anterior');prev.addEventListener('click',function(){show(cur-1);});}
 if(next){next.setAttribute('aria-label','Próximo depoimento');next.addEventListener('click',function(){show(cur+1);});}
-if(tEl){var sec=tEl.closest('section')||tEl.parentElement;sec.addEventListener('mouseenter',function(){paused=true;});sec.addEventListener('mouseleave',function(){paused=false;});
+if(tNd){var sec=tNd.parentElement.closest('section')||tNd.parentElement;sec.addEventListener('mouseenter',function(){paused=true;});sec.addEventListener('mouseleave',function(){paused=false;});
 if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){timer=setInterval(function(){if(!paused)show(cur+1);},9000);}}
 /* rolar para baixo */
 qa('button').forEach(function(b){if(b.textContent.indexOf('Rolar')>-1){b.addEventListener('click',function(){window.scrollBy({top:innerHeight*0.9,behavior:'smooth'});});}});
