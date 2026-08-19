@@ -4,6 +4,11 @@ RewriteEngine On
 # heranças do WordPress antigo: qualquer URL da era index.php vai para a home
 RewriteRule ^index\.php(/.*)?$ https://www.hartto.com/ [R=301,L]
 RewriteRule ^(wp-content|wp-admin|wp-includes|feed)(/.*)?$ https://www.hartto.com/ [R=301,L]
+# sobras da v1 descobertas na auditoria de 19/08: 301 para destinos atuais
+RewriteRule ^compatibilizacao-projetos-bim/?$ https://www.hartto.com/projeto-estrutural-para-construtoras/ [R=301,L]
+RewriteRule ^consultoria-estrutural/?$ https://www.hartto.com/ [R=301,L]
+RewriteRule ^cases/?$ https://www.hartto.com/portfolio/ [R=301,L]
+RewriteRule ^projeto-estrutural-vitoria-es/?$ https://www.hartto.com/onde-atuamos/ [R=301,L]
 # /index.html é duplicata da home: 301 (só para requisição externa, sem loop interno)
 RewriteCond %{THE_REQUEST} \s/index\.html[\s?] [NC]
 RewriteRule ^index\.html$ https://www.hartto.com/ [R=301,L]
