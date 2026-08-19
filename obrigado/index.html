@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
+<meta name="robots" content="noindex, follow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Mensagem enviada | Hartto Engenharia Estrutural</title>
@@ -37,7 +38,7 @@ addEventListener('click',function(e){var a=e.target.closest('a');if(!a)return;va
 <div class="hero"><div class="container"><h1>Mensagem enviada!</h1><div class="hatch"></div>
 <p class="sub">Obrigado pelo contato. Um engenheiro da Hartto vai retornar em horário comercial. Se preferir agilizar, chame no WhatsApp.</p>
 <div class="btn-row"><a class="btn btn-gold" href="https://wa.me/5527992739196?text=Ol%C3%A1%2C%20quero%20um%20or%C3%A7amento%20de%20projeto%20estrutural.">Chamar no WhatsApp</a><a class="btn btn-ghost" href="/">Voltar ao site</a></div>
-<script>if(window.gtag)gtag('event','generate_lead');</script>
+<script>if(window.gtag)if((function(){try{if(sessionStorage.getItem('hb_lead')==='1'){sessionStorage.removeItem('hb_lead');return true}}catch(e){}return (document.referrer||'').indexOf('formsubmit.co')>-1})())gtag('event','generate_lead');</script>
 </div></div><footer><div class="container">
 <div class="ft">
 <div><img src="/images/hartto-logo.png" alt="Hartto"><p>Projetos de estruturas para obras eficientes. Concreto armado e protendido para construtoras de todo o Brasil.</p></div>

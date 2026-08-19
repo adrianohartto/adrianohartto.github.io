@@ -4,12 +4,20 @@ RewriteEngine On
 # heranças do WordPress antigo: qualquer URL da era index.php vai para a home
 RewriteRule ^index\.php(/.*)?$ https://www.hartto.com/ [R=301,L]
 RewriteRule ^(wp-content|wp-admin|wp-includes|feed)(/.*)?$ https://www.hartto.com/ [R=301,L]
-# força https
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
-# força www
+# /index.html é duplicata da home: 301 (só para requisição externa, sem loop interno)
+RewriteCond %{THE_REQUEST} \s/index\.html[\s?] [NC]
+RewriteRule ^index\.html$ https://www.hartto.com/ [R=301,L]
+# força https+www em UM salto (NC-22)
+RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} ^hartto\.com$ [NC]
 RewriteRule ^(.*)$ https://www.hartto.com/$1 [R=301,L]
+# cabeçalhos de segurança (NC-05 parcial; CSP Report-Only e HSTS ficam para a fase 2)
+<IfModule mod_headers.c>
+Header always set X-Content-Type-Options "nosniff"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+Header always set X-Frame-Options "DENY"
+</IfModule>
 # cache de assets
 <IfModule mod_expires.c>
 ExpiresActive On

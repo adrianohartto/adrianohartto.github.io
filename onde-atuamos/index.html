@@ -40,7 +40,7 @@ addEventListener('click',function(e){var a=e.target.closest('a');if(!a)return;va
 <div class="card-form">
 <h2>Peça seu orçamento</h2>
 <p>Resposta em horário comercial. Se preferir, chame direto no WhatsApp.</p>
-<form action="https://formsubmit.co/engenharia@hartto.com" method="POST">
+<form action="https://formsubmit.co/engenharia@hartto.com" method="POST" onsubmit="if(window.gtag)gtag('event','form_submit');try{sessionStorage.setItem('hb_lead','1')}catch(e){}">
 <input type="hidden" name="_subject" value="Novo pedido de orçamento pelo site Hartto"><input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false">
 <input type="hidden" name="origem" value="pagina-local-es">
 <input type="hidden" name="servico" value="local-es">
@@ -50,7 +50,7 @@ addEventListener('click',function(e){var a=e.target.closest('a');if(!a)return;va
 <label>E-mail</label><input type="email" name="email" required title="Informe um e-mail válido, ex.: nome@empresa.com">
 <label>Telefone / WhatsApp</label><input type="tel" name="telefone" required inputmode="tel" pattern="[0-9()+\-. ]{10,17}" minlength="10" title="Informe um telefone válido com DDD, ex.: (27) 99999-9999">
 <label>Sobre a obra (tipo, cidade, área aproximada)</label><textarea name="mensagem" rows="3"></textarea>
-<button type="submit" onclick="if(window.gtag)gtag('event','form_submit')">Enviar</button>
+<button type="submit">Enviar</button>
 <a class="zap" href="https://wa.me/5527992739196?text=Ol%C3%A1%2C%20quero%20um%20or%C3%A7amento%20de%20projeto%20estrutural.">ou chame no WhatsApp: (27) 99273-9196</a>
 </form>
 </div>
