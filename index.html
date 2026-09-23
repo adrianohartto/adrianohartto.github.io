@@ -49,26 +49,51 @@ btn.addEventListener('click',function(){var o=wrap.classList.toggle('hb-open');b
 /* sketchfab sob demanda */
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var f=e.target;if(f.dataset.src){f.src=f.dataset.src;delete f.dataset.src;}io.unobserve(f);}});},{rootMargin:'600px'});
 qa('iframe[data-src]').forEach(function(f){io.observe(f);});
-/* depoimentos */
+/* carrosséis — corrigidos em 23/09 (escopo por seção; defeito reportado por Adriano) */
+function secByText(txt){var s=document.querySelectorAll('section');for(var i=0;i<s.length;i++){if(s[i].textContent.indexOf(txt)>-1)return s[i];}return null;}
+var RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* --- depoimentos --- */
 var DEPS=[
-{t:"Somos parceiros da Hartto há alguns anos e sempre recebemos um atendimento exemplar. Os projetos estruturais são muito bem detalhados, com soluções técnicas viáveis e bem fundamentadas. A disponibilidade para compatibilizações e ajustes é excepcional, garantindo agilidade e qualidade em todos os entregáveis.",n:"Sinval Cardoso",r:"Diretor de Engenharia",c:"Ideally Construtora"},
-{t:"Trabalhar com a Hartto Engenharia Estrutural tem sido uma experiência muito positiva. O Adriano é um profissional jovem, mas com um nível técnico e responsabilidade que chamam atenção. Os projetos que ele entrega são sempre bem elaborados, detalhados e organizados, o que facilita muito a execução na obra e evita retrabalho. Além da qualidade técnica, destaco a postura: é um parceiro confiável, acessível e comprometido com prazos e resultados.",n:"Wagner Rocha",r:"Diretor de Engenharia",c:"Octo Empreendimentos"},
-{t:"Sou o Vitor Hugo, sócio da Excelência Construtora, especializada na execução de casas de alto padrão. Um dos maiores desafios nesse segmento é vencer a estrutura de forma eficiente, sem encarecer a obra. E o Adriano, da Hartto, faz isso com muita maestria. Em projetos com arquiteturas mais desafiadoras, encontrar esse equilíbrio é raro. Por isso, temos total confiança em indicar para todos os nossos clientes e executar os projetos desenvolvidos por ele.",n:"Vitor Hugo",r:"Sócio",c:"Excelence Construtora"}];
-function findNode(txt){var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null);var n;while((n=w.nextNode())){var pt=n.parentNode&&n.parentNode.tagName;if(pt==='SCRIPT'||pt==='STYLE')continue;if(n.nodeValue&&n.nodeValue.indexOf(txt)>-1)return n;}return null;}
-function findAny(list){for(var i=0;i<list.length;i++){var n=findNode(list[i]);if(n)return {n:n,i:i};}return {n:null,i:0};}
-var tF=findAny(['Somos parceiros da Hartto','Trabalhar com a Hartto','Sou o Vitor Hugo']);
-var nF=findAny(['Sinval Cardoso','Wagner Rocha','Vitor Hugo']);
-var rF=findAny(['Diretor de Engenharia','S\u00f3cio']);
-var cF=findAny(['Ideally Construtora','Octo Empreendimentos','Excelence Construtora']);
-var tNd=tF.n,nNd=nF.n,rNd=rF.n,cNd=cF.n;
-var aspas=tNd&&tNd.nodeValue.indexOf('\u201c')>-1;
-var cur=tF.i,timer=null,paused=false;
-function show(i){cur=(i+DEPS.length)%DEPS.length;var d=DEPS[cur];if(tNd)tNd.nodeValue=aspas?('\u201c'+d.t+'\u201d'):d.t;if(nNd)nNd.nodeValue=d.n;if(rNd)rNd.nodeValue=d.r;if(cNd)cNd.nodeValue=d.c;}
-var prev=q('button.absolute.left-4'),next=q('button.absolute.right-4:not(.top-4)')||qa('button.absolute.right-4')[qa('button.absolute.right-4').length-1];
-if(prev){prev.setAttribute('aria-label','Depoimento anterior');prev.addEventListener('click',function(){show(cur-1);});}
-if(next){next.setAttribute('aria-label','Próximo depoimento');next.addEventListener('click',function(){show(cur+1);});}
-if(tNd){var sec=tNd.parentElement.closest('section')||tNd.parentElement;sec.addEventListener('mouseenter',function(){paused=true;});sec.addEventListener('mouseleave',function(){paused=false;});
-if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){timer=setInterval(function(){if(!paused)show(cur+1);},9000);}}
+{i:"S",n:"Sinval Cardoso",r:"Diretor de Engenharia",c:"Ideally Construtora",t:"“Somos parceiros da Hartto há alguns anos e sempre recebemos um atendimento exemplar. Os projetos estruturais são muito bem detalhados, com soluções técnicas viáveis e bem fundamentadas. A disponibilidade para compatibilizações e ajustes é excepcional, garantindo agilidade e qualidade em todos os entregáveis.”"},
+{i:"W",n:"Wagner Rocha",r:"Diretor de Engenharia",c:"Octo Empreendimentos",t:"“Trabalhar com a Hartto Engenharia Estrutural tem sido uma experiência muito positiva. O Adriano é um profissional jovem, mas com um nível técnico e responsabilidade que chamam atenção. Os projetos que ele entrega são sempre bem elaborados, detalhados e organizados, o que facilita muito a execução na obra e evita retrabalho.\n\nAlém da qualidade técnica, destaco a postura: é um parceiro confiável, acessível e comprometido com prazos e resultados. Sempre tratou a minha empresa com seriedade e transparência, o que hoje é essencial em qualquer parceria.\n\nSem dúvida, é um profissional e uma empresa que eu recomendo para quem busca segurança, qualidade e um bom suporte no desenvolvimento de projetos estruturais.”"},
+{i:"V",n:"Vitor Hugo",r:"Sócio",c:"Excelence Construtora",t:"“Sou o Vitor Hugo, sócio da Excelência Construtora, especializada na execução de casas de alto padrão. Um dos maiores desafios nesse segmento é vencer a estrutura de forma eficiente, sem encarecer a obra. E o Adriano, da Hartto, faz isso com muita maestria. Em projetos com arquiteturas mais desafiadoras, encontrar esse equilíbrio é raro. Por isso, temos total confiança em indicar para todos os nossos clientes e executar os projetos desenvolvidos por ele.”"}];
+var dSec=secByText('O Que Nossos Clientes Dizem');
+if(dSec){
+ var qP=null;[].slice.call(dSec.querySelectorAll('p')).some(function(pp){if(pp.textContent.indexOf('“')===0&&pp.textContent.length>120){qP=pp;return true}return false});
+ var h4=dSec.querySelector('h4');
+ var rP=h4?h4.nextElementSibling:null,cP=(rP&&rP.tagName==='P')?rP.nextElementSibling:null;
+ var ini=h4?h4.parentElement.querySelector('span'):null;
+ var dDots=[].slice.call(dSec.querySelectorAll('button')).filter(function(b){return /(^|\s)h-3(\s|$)/.test(b.className)});
+ var dNavs=[].slice.call(dSec.querySelectorAll('button')).filter(function(b){return /w-12/.test(b.className)});
+ var dCur=1;DEPS.some(function(d,i){if(h4&&h4.textContent.indexOf(d.n)>-1){dCur=i;return true}return false});
+ function dShow(i){dCur=(i+DEPS.length)%DEPS.length;var d=DEPS[dCur];
+  if(qP)qP.textContent=d.t;if(h4)h4.textContent=d.n;if(rP)rP.textContent=d.r;if(cP&&cP.tagName==='P')cP.textContent=d.c;if(ini)ini.textContent=d.i;
+  dDots.forEach(function(b,k){b.className=(k===dCur)?'h-3 rounded-full transition-all duration-500 bg-[#e2c339] w-8':'h-3 rounded-full transition-all duration-500 bg-[#215372]/20 w-3 hover:bg-[#215372]/40';b.setAttribute('aria-label','Ir para o depoimento '+(k+1));});}
+ if(dNavs.length>=2){dNavs[0].setAttribute('aria-label','Depoimento anterior');dNavs[dNavs.length-1].setAttribute('aria-label','Próximo depoimento');
+  dNavs[0].addEventListener('click',function(){dShow(dCur-1)});dNavs[dNavs.length-1].addEventListener('click',function(){dShow(dCur+1)});}
+ dDots.forEach(function(b,k){b.addEventListener('click',function(){dShow(k)})});
+ var dPause=false;dSec.addEventListener('mouseenter',function(){dPause=true});dSec.addEventListener('mouseleave',function(){dPause=false});
+ if(!RM)setInterval(function(){if(!dPause)dShow(dCur+1)},9000);
+ dShow(dCur);
+}
+/* --- slider de obras (Nossos Projetos) --- */
+var oSec=secByText('Area Estrutural');
+if(oSec){
+ var oSlides=[].slice.call(oSec.querySelectorAll('div')).filter(function(d){var c=d.className||'';return /absolute/.test(c)&&/inset-0/.test(c)&&/transition-all/.test(c)&&d.querySelector('img')&&d.querySelector('h3');});
+ if(oSlides.length>1){
+  var oCur=oSlides.length-1;
+  function oShow(i){oCur=(i+oSlides.length)%oSlides.length;oSlides.forEach(function(s,k){var on=(k===oCur);if(RM)s.style.transition='none';s.style.opacity=on?'1':'0';s.style.pointerEvents=on?'auto':'none';s.style.zIndex=on?'2':'1';});}
+  var oPrev=oSec.querySelector('button.absolute.left-4'),oNext=oSec.querySelector('button.absolute.right-4');
+  if(oPrev){oPrev.setAttribute('aria-label','Projeto anterior');oPrev.addEventListener('click',function(){oShow(oCur-1)});}
+  if(oNext){oNext.setAttribute('aria-label','Próximo projeto');oNext.addEventListener('click',function(){oShow(oCur+1)});}
+  var oDots=[].slice.call(oSec.querySelectorAll('button')).filter(function(b){return /(^|\s)h-3(\s|$)/.test(b.className)&&!dSec.contains(b)});
+  oDots.forEach(function(b,k){b.setAttribute('aria-label','Ir para o projeto '+(k+1));b.addEventListener('click',function(){oShow(k)})});
+  oSlides.forEach(function(s){var z=s.querySelector('button.absolute.top-3.right-3');var im=s.querySelector('img');if(z&&im){z.setAttribute('aria-label','Ampliar imagem');z.addEventListener('click',function(){window.open(im.src,'_blank','noopener');});}});
+  var oPause=false;oSec.addEventListener('mouseenter',function(){oPause=true});oSec.addEventListener('mouseleave',function(){oPause=false});
+  if(!RM)setInterval(function(){if(!oPause)oShow(oCur+1)},7000);
+  oShow(oCur);
+ }
+}
 /* header ganha fundo sólido ao rolar (comportamento que era do React) */
 var hd=document.querySelector('header.fixed');
 if(hd){var paint=function(){if(window.scrollY>40){hd.classList.add('hb-solid');}else{hd.classList.remove('hb-solid');}};window.addEventListener('scroll',paint,{passive:true});paint();}
