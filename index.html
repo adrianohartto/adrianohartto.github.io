@@ -88,7 +88,7 @@ if(oSec){
   if(oNext){oNext.style.zIndex='30';oNext.setAttribute('aria-label','Próximo projeto');oNext.addEventListener('click',function(){oShow(oCur+1)});}
   var oDots=[].slice.call(oSec.querySelectorAll('button')).filter(function(b){return /(^|\s)h-3(\s|$)/.test(b.className)&&!dSec.contains(b)});
   oDots.forEach(function(b,k){b.style.zIndex='30';b.setAttribute('aria-label','Ir para o projeto '+(k+1));b.addEventListener('click',function(){oShow(k)})});
-  oSlides.forEach(function(s){var z=s.querySelector('button.absolute.top-3.right-3');var im=s.querySelector('img');if(z&&im){z.setAttribute('aria-label','Ampliar imagem');z.addEventListener('click',function(ev){ev.preventDefault();ev.stopPropagation();window.open(im.src,'_blank','noopener');});}});
+  var oZooms=[].slice.call(oSec.querySelectorAll('button')).filter(function(b){var c=String(b.className);return /top-3/.test(c)&&/right-3/.test(c);});oZooms.forEach(function(z){z.style.zIndex='30';z.setAttribute('aria-label','Ampliar imagem do projeto');z.addEventListener('click',function(ev){ev.preventDefault();ev.stopPropagation();var im=oSlides[oCur].querySelector('img');if(im)window.open(im.src.split('?')[0],'_blank','noopener');});});
   var oPause=false;oSec.addEventListener('mouseenter',function(){oPause=true});oSec.addEventListener('mouseleave',function(){oPause=false});
   if(!RM)setInterval(function(){if(!oPause)oShow(oCur+1)},7000);
   oShow(oCur);
