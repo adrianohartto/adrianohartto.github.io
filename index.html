@@ -51,7 +51,7 @@ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isInter
 qa('iframe[data-src]').forEach(function(f){io.observe(f);});
 /* carrosséis — corrigidos em 23/09 (escopo por seção; defeito reportado por Adriano) */
 function secByText(txt){var s=document.querySelectorAll('section');for(var i=0;i<s.length;i++){if(s[i].textContent.indexOf(txt)>-1)return s[i];}return null;}
-var RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;var hbStop=false;
 /* --- depoimentos --- */
 var DEPS=[
 {i:"S",n:"Sinval Cardoso",r:"Diretor de Engenharia",c:"Ideally Construtora",t:"“Somos parceiros da Hartto há alguns anos e sempre recebemos um atendimento exemplar. Os projetos estruturais são muito bem detalhados, com soluções técnicas viáveis e bem fundamentadas. A disponibilidade para compatibilizações e ajustes é excepcional, garantindo agilidade e qualidade em todos os entregáveis.”"},
@@ -73,7 +73,7 @@ if(dSec){
   dNavs[0].addEventListener('click',function(){dShow(dCur-1)});dNavs[dNavs.length-1].addEventListener('click',function(){dShow(dCur+1)});}
  dDots.forEach(function(b,k){b.addEventListener('click',function(){dShow(k)})});
  var dPause=false;dSec.addEventListener('mouseenter',function(){dPause=true});dSec.addEventListener('mouseleave',function(){dPause=false});
- if(!RM)setInterval(function(){if(!dPause)dShow(dCur+1)},9000);
+ if(!RM)setInterval(function(){if(!dPause&&!hbStop)dShow(dCur+1)},9000);
  dShow(dCur);
 }
 /* --- galeria de obras (Nossos Projetos): setas, dots, miniaturas e lupa --- */
@@ -95,7 +95,7 @@ if(oSec){
   var oZoom=_pega(/top-4/,/right-4/);
   if(oZoom){oZoom.style.zIndex='30';oZoom.setAttribute('aria-label','Ampliar imagem do projeto');oZoom.addEventListener('click',function(ev){ev.preventDefault();ev.stopPropagation();var im=oSlides[oCur].querySelector('img');if(im)window.open(im.src.split('?')[0],'_blank','noopener');});}
   var oPause=false;oSec.addEventListener('mouseenter',function(){oPause=true});oSec.addEventListener('mouseleave',function(){oPause=false});
-  if(!RM)setInterval(function(){if(!oPause)oShow(oCur+1)},7000);
+  if(!RM)setInterval(function(){if(!oPause&&!hbStop)oShow(oCur+1)},7000);
   oShow(oCur);
  }
 }
@@ -107,6 +107,18 @@ if(oSec){
 /* header ganha fundo sólido ao rolar (comportamento que era do React) */
 var hd=document.querySelector('header.fixed');
 if(hd){var paint=function(){if(window.scrollY>40){hd.classList.add('hb-solid');}else{hd.classList.remove('hb-solid');}};window.addEventListener('scroll',paint,{passive:true});paint();}
+/* demonstração A07: controle de pausa + link cortado no celular */
+if(document.documentElement.classList.contains('hb-preview')){
+ var mv=document.createElement('button');mv.type='button';mv.textContent='Pausar movimentos';
+ mv.style.cssText='position:fixed;left:12px;bottom:52px;z-index:9998;background:#fffdf6;color:#1a222b;border:1px solid #1a222b33;font-size:11px;letter-spacing:.06em;padding:7px 12px;border-radius:999px;cursor:pointer;opacity:.92;font-family:inherit';
+ mv.setAttribute('aria-pressed','false');
+ mv.addEventListener('click',function(){hbStop=!hbStop;mv.textContent=hbStop?'Retomar movimentos':'Pausar movimentos';mv.setAttribute('aria-pressed',hbStop?'true':'false');
+  [].slice.call(document.querySelectorAll('.animate-scroll')).forEach(function(el){el.style.animationPlayState=hbStop?'paused':'';});});
+ document.addEventListener('DOMContentLoaded',function(){document.body.appendChild(mv);});
+ if(document.body)document.body.appendChild(mv);
+ var all=document.querySelectorAll('a,button');
+ for(var i2=0;i2<all.length;i2++){if(all[i2].textContent.indexOf('todos os projetos')>-1){all[i2].style.whiteSpace='normal';all[i2].style.maxWidth='90vw';break;}}
+}
 /* rolar para baixo */
 qa('button').forEach(function(b){if(b.textContent.indexOf('Rolar')>-1){b.addEventListener('click',function(){window.scrollBy({top:innerHeight*0.9,behavior:'smooth'});});}});
 /* validação + envio nativo */
