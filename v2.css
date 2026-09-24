@@ -139,3 +139,10 @@ footer{background:#215372;color:#fffdf6d9;padding:56px 0 90px;font-size:14px}
 
 .tile h2{margin:0}
 .skip:focus{left:0!important}
+
+/* modo demonstração (só ganha vida quando html.hb-preview é setado no github.io) */
+.hb-demo{display:none!important}
+.hb-preview .hb-demo{display:block!important}
+span.hb-demo{display:none!important}
+.hb-preview span.hb-demo{display:inline-block!important}
+.hb-preview .nums b{color:#215372}
